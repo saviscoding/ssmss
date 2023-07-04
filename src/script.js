@@ -7,11 +7,6 @@ AWS.config.update({
 	)
 })
 
-import { Amplify } from "aws-amplify"
-import awsConfig from "./aws-exports"
-
-Amplify.configure(awsConfig)
-
 // Function to fetch URLs from DynamoDB and display them on the webpage
 function fetchAndDisplayURLs() {
 	const docClient = new AWS.DynamoDB.DocumentClient()
