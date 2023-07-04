@@ -2,18 +2,82 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<script src="https://sdk.amazonaws.com/js/aws-sdk-2.913.0.min.js"></script>
+		<script src="./src/script.js"></script>
 		<script src="https://cdn.tailwindcss.com"></script>
-		<title>SSMSS</title>
+		<title>SSMSS - Savage Serverless Music Streaming Service</title>
 	</head>
-	<body>
-		<h1>Savage Serverless Music Streaming Service</h1>
-		<form id="uploadForm">
-			<input type="file" id="mp3FileInput" accept=".mp3" required />
-			<button type="submit">Upload</button>
-		</form>
 
-		<script src="./src/script.js" type="module"></script>
+	<body class="flex flex-col min-h-screen bg-gray-100">
+		<header class="bg-gray-900 text-white py-4">
+			<div class="container mx-auto px-6">
+				<h1 class="text-3xl font-bold">SSMSS</h1>
+				<h2 class="text-2xl font-medium font-mono">
+					Savage Serverless Music Streaming Service
+				</h2>
+				<p class="text-lg mb-4 font-sans">Music served serverless.</p>
+			</div>
+		</header>
+
+		<div class="container mx-auto my-8 px-6 flex-grow">
+			<h1 class="text-3xl font-bold">Welcome</h1>
+			<br />
+			<h1 class="text-2xl font-bold">Serverless Audio</h1>
+			<p class="py-6">
+				The track below is sourced from a file stored in an S3 bucket.
+			</p>
+			<audio controls class="rounded-lg shadow-lg p-2 bg-white">
+				<source src="ENTER BUCKET LINK HERE" type="audio/mp3" />
+				Your browser does not support the audio element.
+			</audio>
+			<br />
+
+			<!--Dynamo URLS-->
+			<h1 class="text-2xl font-bold">DynamoDB URLS</h1>
+			<p class="py-6">
+				This audio is sourced from the URLs found in a DynamoDB table, along
+				with the artist and track title.
+			</p>
+			<div id="audio-container" class="h-auto grid"></div>
+			<br />
+
+			<!--upload form-->
+			<h1 class="text-2xl font-bold">Upload</h1>
+			<p class="py-3">You can upload your music files using the upload form.</p>
+			<form id="upload-form" class="mt-6" enctype="multipart/form-data">
+				<div class="flex items-center mb-4">
+					<label for="file-upload" class="mr-4"
+						>Choose a music file to upload:</label
+					>
+					<input type="file" id="file-upload" name="file" accept=".mp3" />
+				</div>
+				<div class="flex items-center mb-4">
+					<label for="artist-name" class="mr-4">Artist Name:</label>
+					<input type="text" id="artist-name" name="artistName" required />
+				</div>
+				<div class="flex items-center mb-4">
+					<label for="track-title" class="mr-4">Track Title:</label>
+					<input type="text" id="track-title" name="trackTitle" required />
+				</div>
+				<button
+					type="submit"
+					class="bg-green-500 text-white rounded-lg py-2 px-4 hover:bg-green-700 font-mono">
+					Upload File
+				</button>
+			</form>
+
+			<footer class="bg-gray-900 text-white py-4 mt-3">
+				<div class="container mx-auto px-6">
+					<h1 class="text-sm font-bold">SSMSS ©2023</h1>
+					<h2 class="text-sm font-medium font-mono">
+						Designed by Daniel Savage.
+						<br />MSc Computer Science Project at Manchester Metropolitan
+						University.
+					</h2>
+				</div>
+			</footer>
+		</div>
 	</body>
 </html>
