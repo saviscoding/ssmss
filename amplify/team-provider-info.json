@@ -17,6 +17,12 @@
       },
       "storage": {
         "music": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3uwdj7eopiluv",
+          "type": "cicd"
+        }
       }
     }
   }
