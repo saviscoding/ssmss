@@ -7,6 +7,11 @@ AWS.config.update({
 	)
 })
 
+import { Amplify } from "aws-amplify"
+import awsConfig from "./aws-exports"
+
+Amplify.configure(awsConfig)
+
 // Function to fetch URLs from DynamoDB and display them on the webpage
 function fetchAndDisplayURLs() {
 	const docClient = new AWS.DynamoDB.DocumentClient()
@@ -21,9 +26,9 @@ function fetchAndDisplayURLs() {
 		} else {
 			const items = data.Items // Array of items retrieved from DynamoDB
 			// Process the retrieved items and extract the URLs and artist names
-			const urls = items.map((item) => item.url_link)
-			const artistNames = items.map((item) => item.artist_name)
-			const trackTitles = items.map((item) => item.track_title)
+			const urls = items.map((item) => item.url)
+			const artistNames = items.map((item) => item.artist)
+			const trackTitles = items.map((item) => item.song)
 
 			// Call a function to dynamically display the URLs and artist names on your webpage
 			displayURLs(urls, artistNames, trackTitles)
@@ -76,7 +81,7 @@ function uploadFile(event) {
 	}
 
 	const s3 = new AWS.S3()
-	const s3BucketName = "sav-music"
+	const s3BucketName = "music-bucket114630-dev"
 	const dynamoDBTableName = "music_library"
 
 	const s3Params = {
@@ -99,9 +104,9 @@ function uploadFile(event) {
 		const dynamoDBParams = {
 			TableName: dynamoDBTableName,
 			Item: {
-				artist_name: artistName,
-				track_title: trackTitle,
-				url_link: trackURL
+				artist: artistName,
+				song: trackTitle,
+				url: trackURL
 			}
 		}
 

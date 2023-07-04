@@ -23,6 +23,9 @@
           "appId": "d3uwdj7eopiluv",
           "type": "cicd"
         }
+      },
+      "api": {
+        "ssmss": {}
       }
     }
   }
