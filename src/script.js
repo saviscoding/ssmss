@@ -1,4 +1,4 @@
-import Amplify, { Storage } from "aws-amplify"
+import Amplify from "./node_modules/aws-amplify"
 import awsconfig from "./aws-exports"
 
 Amplify.configure(awsconfig)
