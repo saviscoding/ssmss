@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-ssmss-dev-114630-authRole",
+      "UnauthRoleArn": "arn:aws:iam::603985723437:role/amplify-ssmss-dev-114630-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::603985723437:role/amplify-ssmss-dev-114630-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-ssmss-dev-114630-deployment",
+      "UnauthRoleName": "amplify-ssmss-dev-114630-unauthRole",
+      "StackName": "amplify-ssmss-dev-114630",
+      "StackId": "arn:aws:cloudformation:eu-west-2:603985723437:stack/amplify-ssmss-dev-114630/09952e80-1a58-11ee-9f30-0a80cfdb9e18",
+      "AmplifyAppId": "d3uwdj7eopiluv"
+    },
+    "categories": {
+      "auth": {
+        "ssmss565a4fa5": {}
+      },
+      "storage": {
+        "music": {}
+      }
+    }
+  }
+}
