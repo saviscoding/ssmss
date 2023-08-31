@@ -128,9 +128,18 @@
 // 	uploadForm.addEventListener("submit", uploadFile)
 // })
 
-import Amplify, { Storage, API } from "aws-amplify"
-import awsconfig from "./aws-exports" // Your Amplify configuration
+const Amplify = require("aws-amplify")
+const AWS = require("aws-sdk")
+const awsconfig = require("./aws-exports") // Your Amplify configuration
 Amplify.configure(awsconfig)
+
+AWS.config.update({
+	region: "eu-west-2",
+	credentials: new AWS.Credentials(
+		"AKIAYZIC2YAWQJF2T7UA",
+		"FUYBILi/MHB+eu2/55TF5+shnDtb4pPIp6HpcWf0"
+	)
+})
 
 // Function to fetch URLs from DynamoDB and display them on the webpage
 async function fetchAndDisplayURLs() {
