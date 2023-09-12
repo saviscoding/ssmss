@@ -58,6 +58,21 @@ function displayURLs(urls, artistNames, trackTitles) {
 	}
 }
 
+// file type validation
+document.getElementById("file-upload").addEventListener("change", function () {
+	const allowedTypes = ["audio/mpeg", "audio/mp3"] // Define accepted MIME types
+	const fileInput = this
+
+	if (fileInput.files.length > 0) {
+		const fileType = fileInput.files[0].type
+
+		if (!allowedTypes.includes(fileType)) {
+			alert("Please select a valid .mp3 or audio file.")
+			fileInput.value = "" // Clear the file input
+		}
+	}
+})
+
 // Function to upload a file to S3 and add metadata to DynamoDB
 function uploadFile(event) {
 	event.preventDefault()
