@@ -114,6 +114,7 @@ function uploadFile(event) {
 				console.log("File uploaded and metadata added successfully.")
 				alert("File uploaded successfully.") // Display success message
 				// Refresh the displayed URLs after successful upload
+				location.reload()
 				fetchAndDisplayURLs()
 			}
 		})
