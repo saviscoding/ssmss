@@ -1,10 +1,6 @@
 //Initialize AWS SDK
 AWS.config.update({
-	region: "eu-west-2",
-	credentials: new AWS.Credentials(
-		"AKIAYZIC2YAWQJF2T7UA",
-		"FUYBILi/MHB+eu2/55TF5+shnDtb4pPIp6HpcWf0"
-	)
+	region: "eu-west-2"
 })
 
 // Function to fetch URLs from DynamoDB and display them on the webpage
